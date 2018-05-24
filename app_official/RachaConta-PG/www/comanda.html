@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Comanda</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="icons/web-fonts-with-css/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+<body ng-app="appRachaConta" ng-controller="ctrlComanda">
+	{{carregarDados()}}
+
+<!--BABEÇALHO - Título ---------------------------------------------------------- -->
+	<div>
+		<header class="w3-container cor_primaria"> 
+			<h3></a><i class="fas fa-arrow-left" ng-click="voltar()"></i>&nbsp;{{titulo}}</h3>
+		</header>
+	</div>
+	
+	<!--Logo-->
+		<div class="w3-card w3-center" style="width:100%"> 
+			<img ng-src="{{logo}}" style="width:60%">
+		</div>
+	<br>
+<!-- ----------------------------FIM----------------------------------------------------- -->
+
+
+
+<!--TELA COMANDA - Tela inicial---------------------------------------------------------- -->
+	<div class="w3-container w3-center" ng-show="exibirTelaComanda">
+		
+		<div class="w3-button w3-center" ng-click="abrirTelaCadastroMembro()">
+			<img src="img/grupo.png" style="width:60%" >
+			<p>Membros </p>
+		</div>	
+
+		<div class="w3-button " ng-click="abrirTelaCheckInMesa()">
+			<img src="img/mesa.png" style="width:50%" >
+			<p> Selecionar Mesa </p>
+		</div>
+					
+		<div class="w3-button " ng-click="abrirCardapio()" >
+			<img src="img/comida.png" style="width:90%" >			
+			<p>Cardápio </p>		
+		</div>
+
+		<div class="w3-button " ng-click="abrirTelaExtrato()">
+			<img src="img/extrato.png" style="width:50%" >
+			<p>Extrato Consumo </p>
+		</div>
+		
+		<div class="w3-center w3-padding-32">
+			<button class="w3-button cor_primaria_ligth w3-round-xxlarge border-foco">
+			Finalizar Conta</button>
+		</div>
+	</div>
+<!-- ----------------------------FIM----------------------------------------------------- -->
+
+
+<!--TELA CADASTRO MEMBROS - Tela inicial---------------------------------------------------------- -->
+
+	<div  class="w3-modal-content w3-animate-zoom" style="max-width:350px" ng-show="exibirTelaCadastroMembro">
+	<input class="w3-bar-item w3-input w3-white w3-mobile" type="text" placeholder="Nome do Participante..." required ng-model="nomeMembro">
+	<button class="w3-button cor_primaria_ligth w3-block w3-round-xxlarge w3-section w3-padding border-foco" ng-click ="adicionarMembros()">{{botao}}</button>
+	
+	<div>
+		<table class="w3-table w3-border w3-striped">
+			<tr><th width = 5px>Cód</th><th>Nome</th><th>Ação</th></tr>
+			<tr ng-repeat="item in lsMembros">
+				<td width = 5px>{{item.idMembro}}</td>
+				<td width = 200px>{{item.nomeMembro | uppercase}}</td>
+				<td width = 30px><img src="img/icone-01.ico" style="width:40%" ng-click="editarMembro(item)">&ensp;<img src="img/icone-02.ico" style="width:40%" ng-click="excluirMembro(item.idMembro)"></td>
+			</tr>
+		</table>
+	</div>
+	</div>
+<!-- ----------------------------FIM----------------------------------------------------- -->
+
+
+<!--TELA CHEK-IN MESA/COMANDA - Tela inicial---------------------------------------------------------- -->
+
+	<div  class="w3-modal-content w3-animate-zoom" style="max-width:350px" ng-show="exibirTelaCheckInMesa">
+		Selecione uma mesa disponivel e abra sua Comanda:
+		<div id="borda"style="overflow: auto; height: 280px">
+			<table class="w3-table w3-border w3-striped">
+				<tr><th width = 5px>Cód</th><th>Tamanho da Mesa</th><th>Check</th></tr>
+				<div class="w3-half" ng-model="idMesaCheck">
+					<tr ng-repeat="item in lsMesas  | filter: '1' track by $index">
+						<td width = 5px>{{item.idMesa}}</td>
+						<td width = 200px>Número de Pessoas: {{item.numeroPesoas}}</td>
+						<td width = 30px><input class="w3-radio" type="radio" name="gender" ng-click="definirMesa(item.idMesa)"></td>
+					</tr>
+				</div>
+			</table>
+		</div>
+
+		<button class="w3-button cor_primaria_ligth w3-block w3-round-xxlarge w3-section w3-padding border-foco" ng-click ="abrirComanda()">{{botao2}}</button>
+	</div>
+<!-- ----------------------------FIM----------------------------------------------------- -->
+
+
+<!--TELA DE EXTRATOS - Tela inicial---------------------------------------------------------- -->
+
+	<div class="w3-modal-content w3-animate-zoom" style="max-width:350px" ng-show="exibirTelaExtrato">
+	
+		<select> <!--Botão check box-->
+			<option class="font_size_10">Coletivo</option>
+			<option class="font_size_10" ng-repeat="item in lsMembros" value="trp">{{item.idMembro}} : {{item.nomeMembro}}</option>
+		</select>
+		<div style="overflow: auto; height: 320px" >
+			<div > <!--Lista de itens do extrato-->
+				<table class="w3-table w3-border w3-striped font_size_10">
+					<tr><th>Cód</th><th>Produto</th><th>Valor</th><th>Qtde</th><th>Total</th></tr>
+					<tr ng-repeat="item in lsComanda">
+						<td width = 3px>{{item.idProduto}}</td>
+						<td width = 100px>{{item.nomeProduto}}</td>
+						<td width = 30px>{{item.valor | currency: 'R$' }}</td>
+						<td width = 50px>{{item.quantidade}}</td>
+						<td width = 50px>{{item.total | currency: 'R$' }}</td>
+					</tr>
+				</table>
+			</div>
+			<div> <!--Rodape da lista de itens COLETIVO-->
+				<div class="font_size_10">
+					<b>RESUMO DO EXTRATO COLETIVO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TOTAL: &nbsp; {{totalExtrato | currency: 'R$'}}</b>
+					<table class="w3-table w3-border w3-striped font_size_10">
+						<tr><th>Membros</th><th>Consumo</th><th>Tx.Serv.</th><th>Total</th></tr>
+						<tr ng-repeat="item in lsMembros">
+							<td width = 180px>{{item.nomeMembro}}</td>
+							<td width = 30px>{{item.consumo | currency: 'R$'}}</td>
+							<td width = 30px>{{item.taxaServico | currency: 'R$'}}</td>
+							<td width = 80px>{{item.valorTotal | currency: 'R$'}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<button class="w3-button cor_primaria_ligth w3-block w3-round-xxlarge w3-section w3-padding border-foco" ng-click ="finalizarComanda()">{{botao3}}</button>
+		</div>
+		
+	</div>
+
+<!-- ----------------------------FIM----------------------------------------------------- -->
+
+
+<!--TELA COMANDA FINALIZADA - Tela inicial---------------------------------------------------------- -->
+	<div class="w3-modal-content w3-animate-zoom" style="max-width:350px" ng-show="exibirTelaComandaFinilizada">
+		<div class=" w3-container cor_primaria_ligth w3-bar w3-largelarge"> <!--Titulo-->
+			<div class="w3-bar-item">
+				COMANDA FINALIZADA
+			</div>
+		</div>
+
+		<div ng-show="exibirSubtelaLsComanda">
+			<b>DEFINA A FORMA DE PAGAMENTO</b>
+			<table class="w3-table w3-border w3-striped font_size_10">
+				<tr><th>Membros</th><th>Total</th><th>Forma Pgto</th></tr>
+				<tr ng-repeat="item in lsMembros">
+					<td width = 180px>{{item.nomeMembro}}</td>
+					<td width = 80px>{{item.valorTotal | currency: 'R$'}}</td>
+					<td width = 100px>
+						<select> <!--Botão check box-->
+							<option class="font_size_10">Dinheiro</option>
+							<option class="font_size_10">Cartão</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<button class="w3-button cor_primaria_ligth w3-block w3-round-xxlarge w3-section w3-padding border-foco" ng-click ="informarPagamento()">Informar Pagamento</button>
+		</div>
+
+		<div ng-show="telaPagamentoInformado">
+				<div class=" w3-container cor_primaria_ligth w3-bar w3-largelarge"> <!--Titulo-->
+					<div class="w3-bar-item">
+						A forma de pagamento foi informado com sucesso.<br>
+						Aguade, o atendente irá levar a conta até sua mesa.
+					</div>
+				</div>
+			<button class="w3-button cor_primaria_ligth w3-block w3-round-xxlarge w3-section w3-padding border-foco" ng-click ="sairSistema()">Sair</button>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="extensoes/angular-1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="js/dadospre.js"></script>
+	<script type="text/javascript" src="js/appRachaConta.js"></script>
+	<script type="text/javascript" src="js/ctrlComanda.js"></script>
+</body>
+</html> 
+
+
+
+	
+

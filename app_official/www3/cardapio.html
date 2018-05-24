@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-BR">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Racha Conta</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="icons/web-fonts-with-css/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+
+<body ng-app="appRachaConta" ng-controller="ctrlCardapio">
+
+<!--Cabeçalho de Títulos das Páginas-->
+	<div ng-show="exibirCabecalho">
+		<header class="w3-container cor_primaria w3-center">
+			<h3>{{titulo}}</h3>
+		</header>
+	</div>
+	
+<!--TELA CATEGORIAS-->
+	<div ng-show="exibirCategoria">
+	    <button ng-repeat="categoria in categoria" class="w3-button w3-block w3-border w3-white w3-left-align border-foco-cor">{{categoria.nomeCategoria}}</button>
+	</div>	
+
+<!--TELA DETALHE DA CATEGORIA-->
+		<div ng-show="detalheCategoria">
+			<ul class="w3-ul w3-card-4" style="width:100%">
+				<li ng-repeat="detalhesPedido in detalhesPedido" class="w3-bar-item">
+					<div class="font_bold"> <!--Título do Item-->
+						{{detalhesPedido.nome}}
+					</div>
+					<div class="w3-row"> 
+						<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+							<img ng-src="{{detalhesPedido.img}}" class="w3-round-xlarge" alt="Norway" style="width:100%">
+						</div>
+						<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+							<font size=0>
+								{{detalhesPedido.desc}}
+							</font>
+						</div>
+						<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+							{{detalhesPedido.preco}}
+						</div>
+					</div>
+				</li>
+			</ul>			
+		</div>	
+
+<!--TELA DE DETALHE DO ITEM-->
+
+
+
+<!--Rodape das Páginas-->
+	<div ng-show'="exibirRodape">
+		<div class="w3-container w3-border-top background_padrao font_size_10">
+			{{rodape}}
+			<br>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="extensoes/angular-1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="js/appRachaConta.js"></script>
+	<script type="text/javascript" src="js/ctrlCardapio.js"></script>
+    </body>
+</html>
+
+
+
+
+	
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Autenticação</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="icons/web-fonts-with-css/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+
+
+<body ng-app="appRachaConta" ng-controller="ctrlAutenticar">
+	<div ng-show="exibirTelaMae">
+
+
+	<!--Cabeçalho de Títulos das Páginas-->
+		<div ng-show="exibirCabecalho">
+			<header class="w3-container cor_primaria w3-center">
+				<h3>{{titulo}}</h3>
+			</header>
+		</div>
+
+		
+		
+
+	<!--BLOCO 01 - Tela inicial-->
+		<div ng-show="exibirTelaInicial">
+
+		<!--Logo-->
+			<div class=" w3-center"> 
+				<img src="img/logo7.png"  style="width:70%">
+			</div>
+			<br>
+			
+		<!--Botões-->
+			<div class="w3-center" ng-show="exibirBotoesLogin">
+				<p>
+					<button class="w3-button w3-white w3-round-xxlarge w3-border  border-foco"><img src ="img/google.png" width="32" height="32"> Entrar</button>
+					&nbsp;&nbsp;&nbsp;
+					<button class="w3-button w3-white w3-round-xxlarge w3-border border-foco"><img src ="img/facebook2.png" width="32" height="32"> Entrar</button>
+				</p>
+				<p><button class="w3-button w3-white w3-round-xxlarge w3-border border-foco" ng-click="abrirTelaLoguin()"><img src ="img/entra.png" width="32" height="32"> Entrar</button></p>
+				<p>ou</p>
+				<p class="w3-center"><button class="w3-button cor_primaria_ligth w3-border  w3-round-xxlarge border-foco" ng-click="abriTelaCadstroConta()" ><img src ="img/user2.png" width="32" height="32"> Crie sua conta</button></p>
+				<br>
+				<br>
+				<br>
+			</div>
+			
+			
+			
+	<!--BLOCO 1.1 - Tela de Loguin-->
+			<div ng-show="exibirTelaLoguin">
+					<form class="w3-container">
+						<label><b>E-mail</b></label>
+						<input value = "12345" class="w3-input w3-border w3-round-xxlarge w3-margin-bottom border-foco" type="text" required ng-model="email">
+						<label><b>Senha</b></label>
+						<input class="w3-input w3-round-xxlarge w3-border border-foco w3-section" type="password" required ng-model="senha">						
+					</form>
+
+					<div class="w3-container w3-border-top w3-padding-16 w3-center">
+						<button type="button" class="w3-button w3-block w3-round-xxlarge cor_primaria_ligth w3-section border-foco" ng-click="autenticarConta(email,senha)">Entrar</button>
+						<button type="button" class="w3-button w3-round-xxlarge cor_primaria_ligth border-foco" ng-click="limpaCampo()">Limpar</button>
+						<button type="button" class="w3-button w3-round-xxlarge cor_primaria_ligth border-foco" ng-click="cancelarTela()">Cancelar</button>
+					</div>
+			</div>
+			
+		</div>
+
+		
+		
+		
+	<!--BLOCO 1.2 - Tela Cadastro de Conta-->
+		<div ng-show="exibirTelaCadastroConta">
+			<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:350px">
+				
+				<!--Logotipo-->
+				<div class="w3-center"><br>
+					<span ng-click="cancelarTela()" class="w3-button w3-xlarge w3-hover-white w3-display-topright" title="Close Modal">&times;</span>
+					<img src="img/user2.png" alt="Avatar" style="width:20%" class="w3-circle w3-margin-top">
+				</div>
+				
+				<!--Campos Imput Text-->
+				<form class="w3-container">
+					<label><b>Nome*</b></label>
+					<input class="w3-input w3-border w3-round-xxlarge border-foco" type="text" required ng-model="nome">
+					<label><b>Email*</b></label>
+					<input class="w3-input w3-border w3-round-xxlarge w3-margin-bottom border-foco" type="text" required ng-model="email">
+					<label><b>Senha*</b></label>
+					<input class="w3-input w3-round-xxlarge w3-border border-foco" type="password" required ng-model="senha">
+					<label><b>Confirmar Senha*</b></label>
+					<input class="w3-input w3-round-xxlarge w3-border border-foco" type="password" required ng-model="confirmaSenha">
+					<p class="font_size_10"><span>*Campos obrigat&oacute;rios</span></p>
+				</form>
+				
+				<!--Botões-->
+				<div class="w3-container w3-border-top w3-padding-16 w3-center">
+					<button type="bottom" class="w3-button w3-round-xxlarge cor_primaria_ligth w3-block w3-section border-foco" ng-click="cadastrarContaUsuario()">Cadastrar</button>
+					<button type="button" class="w3-button w3-round-xxlarge cor_primaria_ligth border-foco" ng-click="limpaCampo()">Limpar</button>
+					<button type="button" class="w3-button w3-round-xxlarge cor_primaria_ligth border-foco" ng-click="cancelarTela()">Cancelar</button>
+				</div>
+			</div>
+		</div>
+
+		
+		
+		
+	<!--BLOCO 02 - Tela de check-in do estabelecimento-->
+		<div ng-show="exibirTelacheckInEstabelecimento">
+			
+			<!--Autenticação-->
+			<div class="w3-section w3-center">
+				<div class="w3-bar w3-light-grey w3-border" ng-click="lerQrCode()">
+					<p><img src="img/qrcode.png" style="width:20%"></p>
+					<input class="w3-bar-item w3-input w3-white w3-mobile" type="text" placeholder="Código do estabelecimento..." required ng-model="codigoEstabelecimento">
+				</div>
+			</div>
+			
+			<button class="w3-button cor_primaria_ligth w3-block w3-round-xxlarge w3-section w3-padding border-foco" ng-click ="autenticarEstabelecimento(codigoEstabelecimento)">Entrar</button>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+		
+	<!--QR-Code - Ler código do estabelecimento-->
+		<div class="w3-center" ng-show="exibirLeitorQrCode">
+		
+			<video id="preview"></video>
+			<!--
+			<div class="w3-bar w3-light-grey w3-border">
+				<script>
+					let scanner = new Instascan.Scanner(
+						{
+							video: document.getElementById('preview')
+						}
+					);
+					
+					scanner.addListener('scan', function(content){
+						alert('Escondeu o conteudo: ' + content);
+					});
+					
+					Instascan.Camera.getCameras().then(cameras =>
+						{
+							if(cameras.length > 0){
+								scanner.start(cameras[0]);
+							}else{
+								console.error("Não existe câmera no dispositivo!")
+							}
+						});
+				</script>
+			</div>
+			-->
+			<button class="w3-button cor_primaria_ligth w3-block w3-round-xxlarge w3-section w3-padding border-foco" ng-click="autenticarConta()">voltar</button>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+		
+		
+		
+
+	<!--Rodape das Páginas-->
+		<div ng-show'="exibirRodape">	
+			<div ng-show="exibirMsgRodape" class="w3-container w3-border-top background_padrao font_size_10">
+				{{rLine1}} <br>
+				{{rLine2}}
+				<br>
+			</div>
+		</div>
+		
+	</div>
+	
+
+	<script type="text/javascript" src="extensoes/angular-1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="js/dadospre.js"></script>
+	<script type="text/javascript" src="js/appRachaConta.js"></script>
+	<script type="text/javascript" src="js/ctrlAutenticar.js"></script>
+	
+
+</body>
+</html> 

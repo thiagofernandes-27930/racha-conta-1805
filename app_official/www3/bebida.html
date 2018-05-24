@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<title>Racha Conta</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="icons/web-fonts-with-css/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="css/style_cores.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styes_form.css">
+
+<body>
+
+<!-- CABECALHO -->
+<div class="w3-container cor_primaria">
+	<div class="w3-bar w3-large">
+		<a class="w3-bar-item w3-button" href="05-cardapio.html">
+			<i class="fas fa-arrow-left"></i>
+		</a>
+		<span class="w3-bar-item">
+			Refeições
+		</span>
+	</div>
+</div>
+
+<!--LISTAS DE PRODUTOS-->
+<ul  class="w3-ul w3-card-4" style="width:100%"> 
+		<li><h4>Refrigerantes</h4></li>
+	<!--LINHA 1-->
+	<li onclick="document.getElementById('bd-detal-1').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Coca Cola - 600ml
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/bd-01.png" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão preto,tomate grelhado e salada da alface e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				07,50
+			</div>
+		</div>
+	</li>
+  
+	<!--LINHA 2-->
+	<li onclick="document.getElementById('bd-detal-2').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Coca Cola zero - 600ml
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/bd-02.png" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão e salada.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				7,50
+			</div>
+		</div>
+	</li>
+	
+	<!--LINHA 3-->
+	<li onclick="document.getElementById('bd-detal-3').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Fanta Uva - Lata
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/bd-03.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão, salada e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				05,50
+			</div>
+		</div>
+	</li>
+	
+	<!--LINHA 4-->
+	<li onclick="document.getElementById('bd-detal-4').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Fanta laranja - Lata
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/bd-04.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão, salada, vinagrete e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				05,50
+			</div>
+		</div>
+	</li>
+	
+	<!--LINHA 5-->
+	<li onclick="document.getElementById('bd-detal-5').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Guaraná - Lata
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/bd-05.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão, salada e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				05,50
+			</div>
+		</div>
+	</li>
+	
+	<li><h4>Cervejas</h4></li>
+	
+	<!--LINHA 6-->
+	<li onclick="document.getElementById('bd-detal-6').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Tijuca - 600ml
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/bd-06.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão preto,tomate grelhado e salada da alface e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				07,50
+			</div>
+		</div>
+	</li>
+  
+	<!--LINHA 7-->
+	<li onclick="document.getElementById('bd-detal-7').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Brahma - 600ml
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/bd-07.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão e salada.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				7,50
+			</div>
+		</div>
+	</li>
+	
+	<!--LINHA 8-->
+	<li onclick="document.getElementById('bd-detal-8').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Tijuca - Long Neck
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/bd-08.png" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão, salada e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				7,50
+			</div>
+		</div>
+	</li>
+	
+	<!--LINHA 9-->
+	<li onclick="document.getElementById('bd-detal-9').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Heineken - Long Neck
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/bd-09.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão, salada e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				7,50
+			</div>
+		</div>
+	</li>
+	
+	<!--Onclick Linha 1-->
+	<div id="bd-detal-1" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Coca Cola - 600ml
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html"> 
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/bd-01.png" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 05,50</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 2-->
+	<div id="bd-detal-2" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Coca Cola zero - 600ml
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/bd-02.png" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 05,50</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 3-->
+	<div id="bd-detal-3" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Fanta Uva - Lata
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/bd-03.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 05,50</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 4-->
+	<div id="bd-detal-4" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Fanta laranja - Lata
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/bd-04.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 05,50</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+		<!--Onclick Linha 5-->
+	<div id="bd-detal-5" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Guaraná - Lata
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/bd-05.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 5,50</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 6-->
+	<div id="bd-detal-6" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Tijuca - 600ml
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html"> 
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/bd-06.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 07,50</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 7-->
+	<div id="bd-detal-7" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Brahma - 600ml
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/bd-07.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 07,50</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 8-->
+	<div id="bd-detal-8" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Tijuca - Long Neck
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/bd-08.png" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 05,50</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 9-->
+	<div id="bd-detal-9" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Heineken - Long Neck
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/bd-09.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 05,50</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+</body>
+</html>

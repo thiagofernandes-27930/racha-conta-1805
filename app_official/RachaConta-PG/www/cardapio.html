@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-BR">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Racha Conta</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="icons/web-fonts-with-css/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	
+<body ng-app="appRachaConta" ng-controller="ctrlCardapio">
+	{{listarCategorias()}}
+
+
+<!--CABEÇALHO------------------------------------------------------------------------------------------- -->
+	<div ng-show="exibirCabecalho">
+		<header class="w3-container cor_primaria">
+			<h3></a><i class="fas fa-arrow-left" ng-click="voltar()"></i>&nbsp;{{titulo}}</h3>
+		</header>
+	</div>
+<!-- ----------------------------FIM----------------------------------------------------- -->
+
+
+
+<!--TELA CATEGORIAS - Tela inicial  - Tela 01---------------------------------------------------------- -->
+	<div ng-show="exibirTelaCategoria">
+		<div id="1" ng-repeat="item in lsCategorias">
+			<button class="w3-button w3-block w3-border  w3-left-align border-foco-cor" ng-click="abrirListaProdutos(item)">{{item.nomeCategoria}}</button>
+		</div>
+	</div>	
+<!-- ----------------------------FIM----------------------------------------------------- -->
+
+
+
+<!--TELA LISTA DE PRODUTOS - Tela 02---------------------------------------------------------- -->
+	<div ng-show="exibirTelaProdutos">
+		<ul class="w3-ul w3-card-4 " style="width:100%">
+			<li ng-repeat="item in lsListarProdutos"  class="w3-bar-item " id="borda" ng-click="abrirTelaProduto(item)">
+				<div class="font_bold"> <!--Título do Item-->
+						{{item.nomeProduto}} 
+				</div>
+				<div class="w3-row"> 
+					<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+						<img ng-src="{{item.endImg}}" class="w3-round-xlarge" alt="Norway" style="width:100%">
+					</div>
+					<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+						<font size=0>
+							{{item.descricaoProduto}} 
+						</font>
+					</div>
+					<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+						{{item.valorProduto  | currency: 'R$' }} 
+					</div>
+				</div>
+			</li>
+		</ul>			
+	</div>		
+<!-- ----------------------------FIM----------------------------------------------------- -->
+
+
+
+<!--TELA PRODUTO - Tela 03---------------------------------------------------------- -->
+	<div class="w3-modal-content w3-animate-zoom" style="max-width:350px" ng-show="exibirTelaProduto">	  
+		<div> <!--Corpo da página-->
+			<div class=" w3-container cor_primaria_ligth w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Cód: {{detalheItem.idProduto}} - {{detalheItem.nomeProduto}}
+				</div>
+			</div>
+			<div class="w3-center">
+				<!--Encart-->
+				<div class="w3-center">
+					<div class="w3-card" style="height:170px"  > 
+						<img ng-src="{{detalheItem.endImg}}" alt="Person"style="height:130px">
+						<div class="w3-container font_blue">
+							<h4><b>{{detalheItem.valorProduto  | currency: 'R$'}}</b></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+			<!--Campo Quantidade-->
+			<p class="font_bold"> Quantidade </p>
+			<center><input class="w3-input w3-round-xxlarge w3-border border-foco w3-section w3-center" type="text" style="width:30%" ng-model="quantidade" ng-change="calQtd()"></center>
+			
+			<div>
+				<div class="w3-left font_bold">Total:</div><div class="w3-right-align font_blue">R$ {{total | number:2}}</div>
+			</div>
+				
+			<!--Tipo de Partilhamento-->
+			<p>Selecione o tipo de partilha:</p>
+							
+			<input class="w3-radio" type="radio" name="myCheck" ng-click="tipoPartilha(1)" checked> Individual
+			<input class="w3-radio" type="radio" name="myCheck" ng-click="tipoPartilha(2)"> Coletivo
+			<input class="w3-radio" type="radio" name="myCheck" ng-click="tipoPartilha(3)">Seletivo
+			
+			<div ng-show="exibirListaPartilha">						
+				<div  id="borda"style="overflow: auto; height: 100px">							
+					<table class="w3-table w3-border w3-striped">
+						<tr><th width = 5px>Cód</th><th>Membros</th><th>Seleção</th></tr>	
+							<tr ng-repeat="item in lsMembros">
+								<td width = 5px>{{item.idMembro}}</td>
+								<td width = 200px>{{item.nomeMembro}}</td>
+								<td width = 30px><input type="checkbox" ng-model="myCheck" ng-click="partilhaSeletiva(item.idMembro)"></td>
+							</tr>
+					</table>
+				</div>
+			</div>
+
+			<!--Botão do pedido-->
+
+		<p class="w3-center"><button class="w3-button cor_primaria_ligth w3-round-xxlarge border-foco " ng-click="adicionarComanda()" >Adicionar a Comanda</button></p>
+		
+		</div>
+	</div>	
+<!-- ----------------------------FIM----------------------------------------------------- -->
+
+
+
+<!--CONFIRMAÇÃO DO PEDIDO - Tela 04---------------------------------------------------------- -->
+
+
+	<div class="w3-modal-content w3-animate-zoom" style="max-width:350px" ng-show="exibirExtrato">
+		<div class="w3-ul w3-card-4 " style="width:99%">
+				<table class="w3-table  w3-striped font_size_12">
+						<tr><th>Prod</th><th>Valor</th><th>Qtd</th><th>Valor Individual</th><th>Total</th></tr>
+							<td width = 30px>{{lsComanda.nomeProduto}}</td>
+							<td width = 30px>{{lsComanda.valorProduto | currency: 'R$'}}</td>
+							<td width = 30px>{{lsComanda.quantidadeProduto}}</td>
+							<td width = 80px>{{lsComanda.valorIndividual  | currency: 'R$'}}</td>
+							<td class="font_blue" width = 80px>{{lsComanda.totalProduto  | currency: 'R$'}}</td>
+					</table>
+					<br>
+				
+				<div class="w3-center">
+						<div class="w3-center font_bold font_primaria"> 
+								&nbsp;Deseja realizar outro pedido?
+						</div>
+						<br>					
+					<button class="w3-button w3-round-xxlarge w3-border cor_primaria_ligth border-foco" ng-click ="abrirCateg()">Sim</button>
+					&nbsp;&nbsp;&nbsp;
+					<button class="w3-button cor_primaria_ligth w3-round-xxlarge w3-border border-foco" ng-click ="abrirMenu()">Não</button>
+					<br>
+				</div>							
+		</div>	
+	</div>
+
+
+	<script type="text/javascript" src="extensoes/angular-1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="extensoes/angular-1.5.8/angular-animate.js"></script>
+	<script type="text/javascript" src="js/dadospre.js"></script>
+	<script type="text/javascript" src="js/appRachaConta.js"></script>
+	<script type="text/javascript" src="js/ctrlCardapio.js"></script>	
+    </body>
+</html>
+
+
+
+
+	
+

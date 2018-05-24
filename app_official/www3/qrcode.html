@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<title>Racha Conta</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="icons/web-fonts-with-css/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="css/style_cores.css">
+
+
+<body>
+	<div id="qrcode"></div>
+  <script src="js/qrcode.min.js"></script>
+  <script>
+    new QRCode(document.getElementById('qrcode'), {
+      text: "http://jindo.dev.naver.com/collie",
+      width: 300,
+      height: 300,
+      colorDark: '#000000',
+      colorLigth: '#000000',
+      correctLevel: QRCode.CorrectLevel.H
+
+    })
+
+
+  </script>
+ 
+
+</body>
+</html>

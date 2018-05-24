@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html dir="ltr" lang="pt-BR">
+<head>
+	<title>ScanQRCode</title>
+	<!--<script type="text/javascript" src="js/instascan.min.js"></script>-->
+	<script src = "html5-qrcode.min.js" > </ script> 
+	<script src = "jsqrcode-combined.min.js" > </ script> 
+</head>
+
+<body>
+
+	<div id="reader" style="width:500px;height:340px"></div>
+	
+	
+
+
+	<video id="preview"></video>
+
+		<script>
+			let scanner = new Instascan.Scanner(
+				{
+					video: document.getElementById('preview')
+				}
+			);
+			
+			scanner.addListener('scan', function(content){
+				alert('Escondeu o conteudo: ' + content);
+			});
+			
+			Instascan.Camera.getCameras().then(cameras =>
+				{
+					if(cameras.length > 0){
+						scanner.start(cameras[0]);
+					}else{
+						console.error("Não existe câmera no dispositivo!")
+					}
+				});
+			
+		</script>
+		
+</body>
+</html>

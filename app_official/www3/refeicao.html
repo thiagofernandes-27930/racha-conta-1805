@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<title>Racha Conta</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="icons/web-fonts-with-css/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="css/style_cores.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styes_form.css">
+
+<body>
+
+<!-- CABECALHO -->
+<div class="w3-container cor_primaria">
+	<div class="w3-bar w3-large">
+		<a class="w3-bar-item w3-button" href="05-cardapio.html">
+			<i class="fas fa-arrow-left"></i>
+		</a>
+		<span class="w3-bar-item">
+			Refeições
+		</span>
+	</div>
+</div>
+
+<!--LISTAS DE PRODUTOS-->
+<ul  class="w3-ul w3-card-4" style="width:100%"> 
+	<!--LINHA 1-->
+	<li onclick="document.getElementById('rf-detal-1').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Carne de Panela
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/rf-01.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão preto,tomate grelhado e salada da alface e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				14,00
+			</div>
+		</div>
+	</li>
+  
+	<!--LINHA 2-->
+	<li onclick="document.getElementById('rf-detal-2').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Frango Empanado
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/rf-02.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão e salada.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				14,00
+			</div>
+		</div>
+	</li>
+	
+	<!--LINHA 3-->
+	<li onclick="document.getElementById('rf-detal-3').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Bife Acebolado
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/rf-03.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão, salada e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				14,00
+			</div>
+		</div>
+	</li>
+	
+	<!--LINHA 4-->
+	<li onclick="document.getElementById('rf-detal-4').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Peixe Frito
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/rf-04.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão, salada, vinagrete e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				19,90
+			</div>
+		</div>
+	</li>
+	
+	<!--LINHA 5-->
+	<li onclick="document.getElementById('rf-detal-5').style.display='block'" class="w3-bar-item">
+		<div class="font_bold"> <!--Título do Item-->
+			Frango à Parmegiana
+		</div>
+		<div class="w3-row"> 
+			<div class="w3-col" style="width:20%"> <!--Imagem - Coluna 1-->
+				<img src="img/rf-05.jpg" class="w3-round-xlarge" alt="Norway" style="width:100%">
+			</div>
+			<div class="w3-col font_size_10" style="width:60%"> <!--Descrição - Coluna 2-->
+				<font size=0>
+					Arroz, feijão, salada e batata frita.
+				</font>
+			</div>
+			<div class="w3-col font_blue w3-right-align" style="width:20%"> <!--Valor - - Coluna 3-->
+				23,90
+			</div>
+		</div>
+	</li>
+	
+	<!--Onclick Linha 1-->
+	<div id="rf-detal-1" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Carne de Panela
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html"> 
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/rf-01.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 14,00</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 2-->
+	<div id="rf-detal-2" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Frango Empanado
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/rf-02.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 14,00</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 3-->
+	<div id="rf-detal-3" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Bife Acebolado
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/rf-03.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 14,00</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+	<!--Onclick Linha 4-->
+	<div id="rf-detal-4" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Peixe Frito
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/rf-04.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 19,90</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+		<!--Onclick Linha 5-->
+	<div id="rf-detal-5" class="w3-modal">	  
+		<div class="w3-modal-content"> <!--Corpo da página-->
+			<div class="w3-container cor_primaria w3-bar w3-largelarge"> <!--Titulo-->
+				<div class="w3-bar-item">
+					Frango à Parmegiana
+				</div>
+			</div>
+			
+			<!--Formulário do Pedido-->
+			<form class="w3-container w3-center" action="cardapio_detalhe.html">
+				<!--Encart-->
+				<div class="w3-card" style="width:100%"> 
+					<img src="img/rf-05.jpg" alt="Person" style="width:100%">
+					<div class="w3-container font_blue">
+						<h4><b>R$ 23,90</b></h4>
+					</div>
+				</div>
+				
+				<!--Campo Quantidade-->
+				<p class="font_bold"> Quantidade </p>
+				<center><input class="input-text-w20 border-foco-cor" type="text" name="ped_qtde"></center>
+				
+				<!--Tipo de Partilhamento-->
+				<p>Selecione o tipo de partilha:</p>
+								
+				<input class="w3-radio" type="radio" name="gender" value="male" checked> Individual
+				<input class="w3-radio" type="radio" name="gender" value="female"> Coletivo
+				<input class="w3-radio" type="radio" name="gender" value="female">Seletivo
+				
+				<!--Botão do pedido-->
+				<p><button class="w3-button cor_primaria_ligth w3-round-xxlarge ">Adicionar a Comanda</button></p>
+			</form>
+		</div>
+	</div>
+	
+</body>
+</html>
